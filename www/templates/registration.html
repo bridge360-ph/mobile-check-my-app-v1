@@ -1,0 +1,80 @@
+<ion-view view-title="Registration">
+<!-- <ion-nav-buttons side="left"> 
+        <button ng-click="toggleLeft()" class="button button-icon profile-icon" ui-sref="app.home"><i class="ion-android-arrow-back"></i></button> 
+ </ion-nav-buttons> -->
+	<ion-content>
+		<div class="row logoRegister">
+			<div class="col">
+				<img src="img/CMS.png" class="RegLogo">
+			</div>
+		</div>
+		<form name="signupForm">
+			<div class="list">
+				<label class="item item-input item-floating-label">
+				    <span class="input-label labelColor">Name</span>
+				    <input type="text" placeholder="Name" ng-model="data.name" name="uname" required="">
+
+				 <div ng-messages="signupForm.uname.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!signupForm .uname.$valid">Please Enter Name</div>
+		        </div>
+
+				</label>
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Email</span>
+			    	<input type="email" placeholder="Email" ng-model="data.mail" name="mail" required="">
+
+			  	<div ng-messages="signupForm.mail.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!signupForm .mail.$valid">Please Enter Email</div>
+		        </div>
+			  	</label>
+
+
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Contact Number</span>
+			    	<input type="text" placeholder="Contact Number" ng-model="data.contact_number" name="contact_number" required="">
+			  	<div ng-messages="signupForm.contact_number.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!signupForm.contact_number.$valid">Please Enter Contact Number</div>
+		        </div>
+			  	</label>
+
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Password</span>
+			    	<input type="password" placeholder="Password" ng-model="data.pwd" name="password" required="">
+			  	<div ng-messages="signupForm.password.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!signupForm.password.$valid">Please Enter Password</div>
+		        </div>
+
+			  	</label>
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Confirm Password</span>
+			    	<input type="password" placeholder="Confirm Password" ng-model="data.con_pwd" name="con_pwd" required="" ng-pattern="data.pwd">
+
+			<div ng-messages="signupForm.con_pwd.$error" ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+			            <div ng-message="required" class="error message"  ng-show="signupForm.con_pwd.$error.required">Please enter confirm password</div>          
+
+			            <span ng-show="submitted && signupForm.con_pwd.$error.pattern && !signupForm.con_pwd.$error.required">Password doesn't match</span>
+			 </div>
+			        
+			  	</label>
+
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Group Code</span>
+			    	<input type="text" placeholder="Group code" ng-model="data.group_code" name="group_code">
+			    </label>
+
+			</div>
+			<div class="row">
+				<div class="col col-50">
+					<button class="button button-energized button-block sign_btn" ng-click="registration(signupForm)">
+						Register
+					</button>
+				</div>
+				<div class="col col-50">
+					<button class="button button-block resetBtn" ui-sref="home">
+						Cancel
+					</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>	
+</ion-view>

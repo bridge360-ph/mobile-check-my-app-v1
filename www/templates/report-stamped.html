@@ -1,0 +1,27 @@
+<ion-view view-title="Stamped report">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Government office must stamp report as “Received”.</p>
+				<div ng-show="notupload">		<!--    class="padBottom" -->
+					<form ng-submit="">
+						<h4 class="report">Upload page of report with stamp.</h4>
+						
+						<img src="img/report.png" class="photoImg reportImg">
+						<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save()">
+				  		Save
+						</button>
+					</form>
+					 <input type="file" id="fileinput" name="file" ng-model="files" on-file-change="onSelected" />
+				</div>
+				<!-- <div ng-show="uploaded">
+					<button class="button button-energized button-block sign_btn" href="">
+					Download</button>
+				</div> -->
+				<button class="button" ng-click="clickme()" ng-if="uploaded == 'ok'">
+						Download Uploaded
+					</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

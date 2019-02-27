@@ -1,0 +1,40 @@
+<ion-view view-title="Report Issue">
+  <ion-nav-buttons side="right">
+      <button class="button button-icon ion-plus plusIcon" ui-sref="app.addissue"></button>
+    </ion-nav-buttons>
+    <ion-content>
+      <div class="row issPadd" ng-show="is_school">
+        <div class="col"> 
+        <!-- <h3 class="issHead">School Name</h3> -->
+          <button class="button button-dropdown" modal-select ng-model="data.school_id" options="SchoolList" modal-title="Select Schools" on-select="changeSchool(newValue, oldValue)">
+              {{schoolName}}
+              <div class="option">
+                  {{option.school_name}}
+              </div>
+          </button>
+        </div>
+        
+    </div>
+    <div class="row issPadd" ng-show="!is_school">
+      <div class="item divHead fullwidth">
+            No Issues to Display
+          </div>  
+    </div>
+    <hr ng-class="{ 'line-hide': !is_school}">
+      <div class="row" ng-repeat="issue in issues | groupBy : 'groupid'" ng-if="is_school = 'yes'">
+        <div class="col col-33 imgCol imgCol" ng-repeat="i in issue" ng-click="issue_detail(i)">
+          <!-- ui-sref="app.viewissue({'issue_id':i.issue_id})" -->
+          <img src="{{i.image}}" class="issueImg" ng-if="i.image !='' ">
+          <img src="img/issue1.png" class="issueImg" ng-if="i.image =='' ">
+          <label>{{i.date1 | date:"d/M/yyyy"}}</label>
+        </div>
+        
+      </div>
+        <!-- <div ng-show="!is_school"> -->
+        <div class="row" ng-if="issues.length < 1" >
+          <label>No Issues Regarding this school</label>
+        </div>
+      <!-- </div> -->
+    </ion-content>
+
+</ion-view>

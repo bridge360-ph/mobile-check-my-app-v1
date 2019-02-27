@@ -1,0 +1,180 @@
+<ion-view view-title="Analyze issued information">
+	<ion-content scroll="true">
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Interview knowledgeable people, if needed, and answer the following questions:</p>
+				
+				<div class="padBottom">
+					<ion-list>
+						<div class = "item item-divider">
+					      How long has issue been existing?
+					   	</div>
+						<ion-radio ng-model="data.issue_exist_from" name="a1" ng-value="'less than 6 months'">Less than 6 months</ion-radio>
+						<ion-radio ng-model="data.issue_exist_from" name="a1" ng-value="'less than 1 year'">Less than 1 year</ion-radio>
+						<ion-radio ng-model="data.issue_exist_from" name="a1" ng-value="'1-5 years'">1-5 years</ion-radio>
+						<ion-radio ng-model="data.issue_exist_from" name="a1" ng-value="'5-10 years'">5-10 years</ion-radio>
+						<ion-radio ng-model="data.issue_exist_from" name="a1" ng-value="'over 10 years'">Over 10 years</ion-radio>
+						<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.issue_exist_from_source">
+					  	</label>
+					</ion-list>
+				</div>
+				<div class="padBottom">
+					<ion-list>
+						<div class = " item item-divider">
+					      How severe is it?
+					   	</div>
+						<ion-radio ng-model="data.server_type" name="a2" ng-value="'low'">Low</ion-radio>
+						<ion-radio ng-model="data.server_type" name="a2" ng-value="'medium'">Medium</ion-radio>
+						<ion-radio ng-model="data.server_type" name="a2" ng-value="'high'">High</ion-radio>
+						<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.server_type_source">
+					  	</label>
+					</ion-list>
+				</div>
+				<div class="padBottom">
+					<div class = " item item-divider itemWrap">
+					    What’s the effect on learners and their learning environment? (You may choose more than 1)
+					   	</div>
+					<ul class="list">
+						<li class = "item item-checkbox checkbox-energized che checkBox">
+					      	Low Grade
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="'low grade'" ng-model="learner[0]"/>
+					      	</label>
+					   	</li>
+
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Classes Disrupted
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="'classes disrupted'" ng-model="learner[1]"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Learners fail to attend classes
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="'learners fail to attend classes'" ng-model="learner[2]"/>
+					      	</label>
+					   	</li>
+					   	<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Low morale of teachers
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="'low morale of teachers'" ng-model="learner[3]"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Low morale of community
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="'low morale of community'" ng-model="learner[4]"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Others
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-value="others" ng-model="learner[5]"/>
+					      	</label>
+					      	<input type="text" name="" class="textBox souTbx" ng-model="data5.learner5_value">
+					   	</li>
+					   	<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.effect_on_learners_source">
+					  	</label>
+					</ul>
+				</div>
+				<div class="padBottom">
+					<ion-list>
+						<div class = " item item-divider itemWrap">
+					      How much attention do stakeholders give to the issue?
+					   	</div>
+						<ion-radio ng-model="data.attention_received" name="a3" ng-value="'low'">Low</ion-radio>
+						<ion-radio ng-model="data.attention_received" name="a3" ng-value="'medium'">Medium</ion-radio>
+						<ion-radio ng-model="data.attention_received" name="a3" ng-value="'high'">High</ion-radio>
+						<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.attention_received_source">
+					  	</label>
+					</ion-list>
+				</div>
+				<div class="padBottom">
+					<ion-list>
+						<div class = " item item-divider itemWrap">
+					     Has SH sent report on the issue to other offices?
+					   	</div>
+						<ion-radio ng-model="data.is_report_sent" name="a4" ng-value="'Y'">Yes</ion-radio>
+						<ion-radio ng-model="data.is_report_sent" name="a4" ng-value="'N'">No</ion-radio>
+						<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.is_report_sent_source">
+					  	</label>
+					</ion-list>
+				</div>
+				<div class="padBottom">
+					<div class = " item item-divider itemWrap">
+					    Next steps? (You may choose more than 1)
+					   	</div>
+					<ul class="list">
+						<li class = "item item-checkbox checkbox-energized che checkBox">
+					      	Need more info
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[0]" ng-value="'need more info'"/>
+					      	</label>
+					   	</li>
+
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Pursue identified mandated agency
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[1]" ng-value="'pursue identified mandated agency'"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Report to higher DepEd office
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[2]" ng-value="'report to higher DepEd office'"/>
+					      	</label>
+					   	</li>
+					   	<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Inquire with other agency
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[3]" ng-value="'inquire with other agency'"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Identify resources
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[4]" ng-value="'identify resources'"/>
+					      	</label>
+					   	</li>
+					   	<li class = "item item-checkbox checkbox-energized checkBox">
+					      	File complaint
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[5]" ng-value="'file complaint'"/>
+					      	</label>
+					   	</li>
+					   	<li class = "item item-checkbox checkbox-energized checkBox itemWrap">
+					      	Identify other stakeholders who can help
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[6]" ng-value="'identify other stakeholders who can help'"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox">
+					      	Others
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-model="step[7]" ng-value="'others'"/>
+					      	</label>
+					      	<input type="text" name="" class="textBox souTbx" ng-model="data5.stpe7_value">
+					   	</li>
+					   	<label class="item item-input">
+					    	<span class="input-label">Sources/s:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="data.next_steps_source">
+					  	</label>
+					</ul>
+				</div>
+				<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save(data.issue_exist_from,data.server_type,data.is_report_sent,data.attention_received)">
+			  		Save
+				</button>
+			</div>	
+		</div>
+	</ion-content>
+</ion-view>

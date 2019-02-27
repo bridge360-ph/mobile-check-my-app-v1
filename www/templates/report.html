@@ -1,0 +1,43 @@
+<ion-view view-title="Report">
+	<ion-content scroll="true">
+		<form name="addReportForm">
+			<div class="row responsive-sm ContentPad">
+				<div class="col idenCol">
+					<p class="padBottom">Get pen and paper and write report.</p>
+					<p class="padBottom">Template</p>
+					<p>Date:{{currentDate}} </p>
+					<p class="padBottom">We submit the issue of<input type="text" name="issuename" id="datatext" ng-model="data2.issuename" required>
+					<i ng-messages="addReportForm.issuename.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addReportForm.issuename.$valid">Please Enter Issue Name</i>
+		            </i>in X School in 
+
+		            <input type="text" name="schoolname" id="datatext" ng-model="data2.schoolname" required>
+					 <i ng-messages="addReportForm.schoolname.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addReportForm.schoolname.$valid">Please Enter School Name</i>
+		       		 </i>. The issue has existed for 
+
+		       		 <input type="text" name="issuedata" id="datatext" 
+					ng-model="data2.issuedata"	required>
+
+					<i ng-messages="addReportForm.issuedata.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addReportForm.issuedata.$valid">Please Enter Issues</i>
+		       		 </i>now.
+
+					<a ng-click="click()">Other details.</a><input type="text" name="otherdetail" ng-model="data2.otherdetail" id="datatext" ng-show="isclick" required>
+
+					 We seek your help as the office with the mandate to address it. Hope you can look into it. Thank you.
+					</p>
+				<p>Signed:</p>
+
+				<img src="img/photo-camera.png" class="photoImg Pimg" ng-click="showPopup()" ng-src="{{cameraimage64}}">
+
+				<button class="button button-energized button-block sign_btn" ng-click="addreport(addReportForm)">
+			  		Save
+				</button>
+				
+		</form>
+	</ion-content>
+</ion-view>

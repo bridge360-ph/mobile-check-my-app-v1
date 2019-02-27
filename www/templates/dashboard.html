@@ -1,0 +1,77 @@
+<ion-view hide-back-button="true" hide-nav-bar="true">
+ 
+  <!-- <ion-nav-buttons side="right" class="deshboard">
+      <img src="img/dashboardlogo.png" ng-click="weburl()" style="width: 70%;">
+    <button class="button button-icon" ng-click="" ui-sref="app.viewprofile">
+          <img src="img/user.png"  class="notif_user1" ng-if="data.image ==''">
+          <img src="{{data.image}}"  class="notif_user1" ng-if="data.image !=''">
+    </button>
+    <button class="button button-icon" ng-click="videourl()">
+        <img src="img/playvideo.png" class="notif_user1">
+    </button>
+  </ion-nav-buttons> -->
+
+  <ion-content scroll="true">
+    <span class="help-block" id="rawH"></span>
+    <div class="row deshboardheader">
+      <div class="col col-80">
+        <img src="img/dashboardlogo.png" ng-click="weburl()" style="width: 100%;height: 85px;">
+      </div>
+      <div class="col col-20" style="margin-left: 5px;">
+        <button class="button button-icon" ng-click="" ui-sref="app.viewprofile">
+          <img src="img/user.png"  class="notif_user1" ng-if="data.image ==''">
+          <img src="{{data.image}}"  class="notif_user1" ng-if="data.image !=''">
+      </button>
+      <button class="button button-icon" ng-click="videourl()">
+          <img src="img/playvideo.png" class="notif_user1">
+      </button>
+      </div>
+    </div>
+    <!-- <div class="item" ion-datetime-picker only-valid="{'before': 'today'}" date ng-model="datetimeValue" ng-change="call_rating()">
+      {{datetimeValue| date: "dd/MM/yyyy" }}
+    </div> -->
+  	<!-- <div class="row">
+  		<div class="col">
+  			<h3 class="dash_title">Rating Chart</h3>
+  			
+            <canvas id="line" class="chart chart-line" chart-data="data1"
+                  chart-labels="labels1" chart-series="series" chart-options="options"
+                  chart-dataset-override="datasetOverride" chart-click="onClick">
+            </canvas>
+
+  		</div>
+    </div> -->
+    <!-- <div class="row firstRow">
+      <div class="col col-50">
+          <img src="img/checkschool.png" class="imagesize firse"  ng-click="weburl()">
+          
+      </div>
+      <div class="col col-50">
+        <img src="img/playvideo.png" class="imagesize" ng-click="videourl()">
+        
+      </div>
+    </div> -->
+    <div class="row firstRow">
+      <div class="col col-50">
+          <img src="img/checkschool.png" class="imagesize firse" ui-sref="app.listschools"  ng-click="button(1)">
+          <h4 class="dash_label">Schools</h4>
+      </div>
+      <div class="col col-50">
+        <img src="img/notifyComment.png" class="imagesize" ui-sref="app.listissues"  ng-click="button(0)">
+        <h4 class="dash_label">Report Issue</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-50">
+          <img src="img/search.png" class="imagesize" ui-sref="app.searchschool">
+          <h4 class="dash_label">Mandate Analysis</h4>
+      </div>
+      <div class="col col-50">
+        <img src="img/star.png" class="imagesize" ui-sref="app.ratings">
+        <h4 class="dash_label">Ratings</h4>
+      </div>
+    </div>
+
+  	</ion-content>
+</ion-view>

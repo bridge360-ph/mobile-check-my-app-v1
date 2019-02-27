@@ -1,0 +1,31 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <!-- <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons> -->
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-footer-bar class="bar bar-footer tabs tabs-icon-only tabsColor " >
+        <a class="tab-item ta_itemColor" ui-sref="app.dashboard">
+          <i class="icon ion-home"></i>
+        </a>
+        <!-- <a class="tab-item ta_itemColor">
+          <i class="icon ion-camera"></i>
+        </a> -->
+        <a class="tab-item ta_itemColor" ui-sref="app.invitefriends">
+          <i class="icon ion-ios-people"></i>
+        </a>
+        <a class="tab-item ta_itemColor" ui-sref="app.chat">
+          <i class="icon ion-person-stalker"></i>
+        </a>
+        <a class="tab-item ta_itemColor" ui-sref="app.ContactsUs">
+          <i class="icon"><img src="img/envelope.png" style="height: 32px;"></i>
+        </a>
+      </ion-footer-bar>
+  </ion-side-menu-content>
+</ion-side-menus>

@@ -1,0 +1,54 @@
+<ion-view view-title="Tell Story of Change">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Guide in writing story of change...</p>
+					<div class="row">
+						<textarea ng-model="data.story" style="border: 1px solid;width: -webkit-fill-available">
+							
+						</textarea>
+					</div>
+
+					
+					<div class="row">
+						<div class="col col-50">
+							<button ng-disabled="{{buttonDisabled}}" class="button button-block sign_btn solution" ng-click="send()" ng-disabled="data.needtoshow" >
+			  				Send
+							</button>
+						</div>
+						<div class="col col-50">
+							<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn later" ng-click="save()">
+						  		Save
+							</button>
+						</div>
+					</div>
+						<center>
+						<div>
+							
+							<h4 class="report">Take photo of Story image1</h4>
+							<img src="img/photo-camera.png" class="photoImg reportImg" ng-click="showPopup()" ng-src="{{cameraimage64}}" ng-if="story1 == 'not'">
+
+							<img src="{{imageurl}}" class="photoImg reportImg" ng-click="showPopup()" ng-src="{{cameraimage64}}"	ng-if="story1 == 'ok'">
+						</div>
+						<h4 class="report">Take photo of Story image2</h4>
+						<img src="img/photo-camera.png" class="photoImg reportImg" ng-click="showPopup2()" ng-src="{{cameraimage642}}"	ng-if="story2 == 'not'">
+
+						<img src="{{imageurl2}}" class="photoImg reportImg" ng-click="showPopup2()" ng-src="{{cameraimage642}}"	ng-if="story2 == 'ok'">
+					</center>
+				</div>
+			</div>
+		<div class="storyimage" ng-click="showimage()">
+			<center><p>Guide for 'Tell Story of Change'</p></center>
+		</div>
+		<div ng-show="show">
+			<ion-list>
+				<ion-item>
+					<img src="img/guidestory2.jpg">
+				</ion-item>
+				<ion-item>
+					<img src="img/guidestory1.jpg">
+				</ion-item>
+			</ion-list>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,62 @@
+<ion-view view-title="{{chat_name}}">
+  <ion-pane class="messaging-view viewchat123">
+    <!-- {{user_name}} -->
+
+    <!-- <div class="row chatUser">
+      <div class="">
+        <img src="img/user.png" class="colbImg">
+      </div>
+      <div class="col col-80 frndName">
+        <h4>{{user_name}}</h4>
+      </div>
+    </div> -->
+    <ion-content class="has-header has-subheader content-stable viewchatcontain" on-swipe-left="hideTime = false" on-swipe-right="hideTime = true">  
+      
+     <!--  <li style="width:100%;" ng-repeat="message in messages track by $index">
+        <div class="msj-rta macro">
+          <div class="text text-r">
+            <p>{{ message.text }}</p>
+            <p><small>{{message.time}}</small></p>
+          </div>
+          <div class="avatar" style="padding:0px 0px 0px 10px !important">
+            <img class="img-circle" style="width:100%;" src="https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg">
+          </div>
+        </div>
+      </li>  -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippet">
+    <div class="row">
+      
+            <div class="chat-message">
+                <ul class="chat" ng-if="empty == false"><!-- class="left clearfix" -->
+                  <div ng-repeat="ch in chat | groupBy : 'date'">
+                    <div class="chatdate text-muted">{{ch[0].date | date : 'dd/MM/yyyy'}}</div>
+                    <li  class="clearfix" ng-repeat="c in ch" ng-class="({{c.sender_id}} == {{sender}}) ? 'right':'left'" >
+                      <div class="chat-body clearfix" on-long-press="itemOnLongPress({{c}})" on-touch-end="itemOnTouchEnd({{c.message_id}})">
+                        <div class="header">
+                          <!-- <strong class="primary-font">John Doe</strong> -->
+                          <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{c.cdate}}</small>
+                        </div>
+                        <p>
+                          {{c.message_text}}
+                        </p>
+                      </div>
+                    </li> 
+                  </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    </ion-content>
+
+    <ion-footer-bar keyboard-attach class="bar-stable item-input-inset chatInput">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" class="searchtextbox"/>
+      </label>
+      <button class="button button-energized" ng-click="sendMessage()">
+        Send
+      </button>
+    </ion-footer-bar>
+  </ion-pane>
+  </ion-view>

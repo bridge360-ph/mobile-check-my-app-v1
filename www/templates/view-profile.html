@@ -1,0 +1,43 @@
+<ion-view view-title="Profile">
+	<ion-nav-buttons side="right">
+	<button class="button button-icon ion-trash-a plusIcon" ui-sref="app.delete"></button>
+      <button class="button button-icon ion-edit plusIcon" ui-sref="app.editprofile"></button>
+  	</ion-nav-buttons>
+	<ion-content>
+		<div class="row responsive-sm noPadding">
+			<div class="col ColMargin">
+				<img src="img/user.png" class="profileImg" ng-if="data.image == ''">
+				<img src="{{data.image}}" class="profileImg" ng-if="data.image != ''">
+				
+			</div>
+		</div>
+		<ul class="list">
+    			<label class="item item-input">
+					<span class="input-label">Name</span>
+				    <span>{{data.name}}</span>
+				</label>
+				<label class="item item-input">
+				   <span class="input-label">Email</span>
+				    <span>{{data.email_address}}</span>
+				</label>
+				<label class="item item-input">
+				   <span class="input-label">Contact Number</span>
+				    <span>{{data.contact_number}}</span>
+				</label>
+    		</ul>
+    	<center>
+    	<div>
+         <!-- <button class="button " style="background-color: #1e307e;color: white;" ng-click="logout()">
+            Logout
+          </button> -->
+          <button  class="button ion-log-out logout" ng-click="logout()"></button>
+
+        </div>
+		</center>
+		<div class = "bar">
+			<h1 class = "title" style="text-align: right;
+			font-size: 13px;">CMS V{{appVersion}}</h1>
+		 </div>
+	</ion-content>
+	
+</ion-view>

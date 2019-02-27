@@ -1,0 +1,75 @@
+<ion-view view-title="Identify Concerned">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Ask people why they are concerned with or affected by the issue, and if they’re willing to do something about it.</p>
+				<p>To engage people, you may:</p>
+				<ul class="idenUl padBottom">
+					<li>Visit the school/community and ask people (teacher, parent, student, etc.)</li>
+					<li><strong><a ng-click="share()">Post</a></strong> on FB. Tell friends that you’re working on an
+issue for a public school.</li>
+					<li>Use <strong><u><a ui-sref="app.statementform">statement form</a></u></strong> and get people to sign on
+them if they share the concern. Identify their
+sector group.</li>
+				</ul>
+				<div class="padBottom">
+					<p>Check sector and enter number of individuals you have engaged:</p>
+					<ul class="list">
+						<li class = "item  indentify_concern_check_rm checkbox-energized che checkBox">
+					      	Parents
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_parents" only-digits>
+					   	</li>
+
+						<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Students
+					      
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_students">
+					   	</li>
+						<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Teachers
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_teachers">
+					   	</li>
+					   	<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Community members
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_members">
+					   	</li>
+						<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Faith-based group
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_faith_groups">
+					   	</li>
+					   	<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Ngo
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_ngo">
+					   	</li>
+						<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Business
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_business">
+					   	</li>
+						<li class = "item  indentify_concern_check_rm checkbox-energized checkBox">
+					      	Others
+					      	
+					      	<input type="text" name="" class="textBox" ng-model="engage.no_of_others">
+					   	</li>
+					</ul>
+				</div>
+				<div class="padBottom">
+					<p>Your Signature:</p>
+					<img src="{{imageurl}}" class="photoImg" ng-click="showPopup()" ng-src="{{cameraimage64}}"	ng-if="uploaded_engagedform == 'ok'">
+
+					<img src="img/photo-camera.png" class="photoImg" ng-click="showPopup()" ng-src="{{cameraimage64}}"	ng-if="uploaded_engagedform != 'ok'">
+				</div>
+				<button ng-disabled="{{buttonDisabled}}"  class="button button-energized button-block sign_btn" ng-click="saveData()">
+			  		Save
+				</button>
+			</div>	
+		</div>
+	</ion-content>
+</ion-view>
+
+ 
+ 

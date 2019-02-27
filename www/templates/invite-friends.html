@@ -1,0 +1,35 @@
+<ion-view view-title="Invite friends">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon ion-grid plusIcon" ui-sref="app.collaborations"></button>
+  	</ion-nav-buttons>
+  	<ion-content>
+  		<form name="invitationForm">
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Name</span>
+            <input type="text" placeholder="Name" ng-model="data.name" name="uname" required="">
+
+            <div ng-messages="invitationForm.uname.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!invitationForm.uname.$valid">Please Enter Name</div>
+            </div>
+
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Email</span>
+            <input type="text" placeholder="Email" ng-model="data.email_address" name="mail" required="">
+            <div ng-messages="invitationForm.mail.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!invitationForm.mail.$valid">Please Enter Email</div>
+            </div>
+          </label>
+        </div>
+        <div class="row">
+      <div class="col">
+        <button class="button button-energized button-block sign_btn" ng-click="send_invitation(invitationForm)">
+            Invite Now
+        </button>
+      </div>
+    </div>
+      </form>
+  	</ion-content>
+
+</ion-view>

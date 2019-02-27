@@ -1,0 +1,77 @@
+<ion-view view-title="Access identified information">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p>Request School Head for information. You may talk to SH or send a formal <a ui-sref="#"><strong>letter</strong></a>.</p>
+				
+				<div class="padBottom">
+					<ul class="list">
+						<li class = "item item-checkbox checkbox-energized che checkBox chbkacc">
+					      	Accessed info:
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-checked="newItem.a1=='Y' && newItem.a2=='Y' && newItem.a3=='Y'" />
+					      	</label>
+					   	</li>
+
+						<li class = "item item-checkbox checkbox-energized checkBox chbkSpace">
+					      	BEIS
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-checked="newItem.a1=='Y'" ng-init='checkStatus1=false' ng-model='checkStatus1' ng-click="stateChanged1(checkStatus1)"/>
+					      	</label>
+					   	</li>
+						<li class = "item item-checkbox checkbox-energized checkBox chbkSpace">
+					      	Project Inspection Report
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-checked="newItem.a2=='Y'" ng-init='checkStatus=false' ng-model='checkStatus2' ng-click="stateChanged2(checkStatus2)"/>
+					      	</label>
+					   	</li>
+					   	<li class = "item item-checkbox checkbox-energized checkBox chbkSpace">
+					      	Property Inventory
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-checked="newItem.a3=='Y'" ng-init='checkStatus=false' ng-model='checkStatus3' ng-click="stateChanged3(checkStatus3)"/>
+					      	</label>
+					    </li>
+					</ul>
+				</div>
+				<div class="padBottom">
+					<ul class="list">
+						<li class = "item item-checkbox checkbox-energized che checkBox chbkacc">
+					      	Need to wait.
+					      	<label class = "checkbox">
+					         	<input type = "checkbox" class="chbox" ng-init='checkStatus=false' ng-model='checkStatus' ng-click="stateChanged(checkStatus)" />
+					      	</label>
+					   	</li>
+					   	<div class = "list hideshow">
+					      	<label class="item item-input">
+						    <span class="input-label labelColor">Elapse days</span>
+					         <input type = "text" ng-model='newItem.elapse_days' placeholder="Elapse days" />
+						  	</label>
+					   	</div>
+					</ul>
+				</div>
+				<div class="padBottom">
+					<p>Upload Picture:</p><!-- <input type="file" name="sign"> -->
+					<img src="img/photo-camera.png" class="photoImg" ng-click="showPopup()" ng-src="{{cameraimage64}}" ng-if="uploaded=='false'">
+
+
+					<img src="{{imageurl}}" class="photoImg" ng-click="showPopup()" ng-src="{{cameraimage64}}"	ng-if="uploaded=='true'">
+					
+				</div>
+				<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="savedata()">
+			  		Save
+				</button>
+			</div>	
+		</div>
+	</ion-content>
+	<div class="bar bar-footer tabs tabs-icon-only tabsColor">
+	  	<a class="tab-item ta_itemColor">
+	    	<i class="icon ion-camera"></i>
+	  	</a>
+	  	<a class="tab-item ta_itemColor">
+	    	<i class="icon ion-person-stalker"></i>
+	  	</a>
+	  	<a class="tab-item ta_itemColor">
+	    	<i class="icon ion-ios-people"></i>
+	  	</a>
+	</div>
+</ion-view>

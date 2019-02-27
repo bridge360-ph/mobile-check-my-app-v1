@@ -1,0 +1,29 @@
+<ion-view view-title="Preview Feedback Report">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<!-- <p class="padBottom">Write report</p>
+				<p class="padBottom">Template</p>-->
+				<p>Date:{{currentDate}} </p>
+
+				<div class="padBottom">We submit the issue of 
+					<strong>{{text[0]}}</strong> in X School in 
+					<strong>{{text[1]}}</strong>. The issue has existed for 
+					<strong>{{text[2]}}</strong> now. 
+					<strong>{{ text[3] }}</strong> . 
+					We seek your help as the office with the mandate to address it.
+					<p>Hope you can look into it. Thank you.</p>
+				</div>
+				<p>Signed:</p>
+				<strong>{{ text[4] }}</strong>
+			</div>	
+		</div>
+		<div class="row">
+			<!-- <div class="col col-50"> -->
+				<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ui-sref="app.feedbackreport">
+			  		Edit Report
+				</button>
+			<!-- </div> -->
+		</div>
+	</ion-content>
+</ion-view>

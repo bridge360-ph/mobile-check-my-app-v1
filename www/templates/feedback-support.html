@@ -1,0 +1,34 @@
+<ion-view view-title="Feedback support.">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Share report with identified stakeholders. Ask if they agree and can support it.</p>
+				<div class="padBottom">
+					<p>How many support your feedback report?</p>
+					<input type="text" name="support" ng-model="data.support" placeholder="Enter No of suport" class="supportfeed">
+
+					<p>Write names of supportive stakeholders on the <a ui-sref="app.previewfeedbackreport">report</a>.</p>
+					<!-- <form ng-submit="">
+						<div class="list">
+							<label class="item item-input item-floating-label">
+							    <span class="input-label">Stakeholder 1</span>
+							    <input type="text" placeholder="Stakeholder 1">
+							</label>
+							<label class="item item-input item-floating-label">
+							    <span class="input-label">Stakeholder 2</span>
+							    <input type="text" placeholder="Stakeholder 2">
+							</label>
+							<label class="item item-input item-floating-label">
+							    <span class="input-label">Stakeholder 3</span>
+							    <input type="text" placeholder="Stakeholder 3">
+							</label>
+						</div>
+					</form>			 -->
+						<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save()">
+					  		Save
+						</button>
+				</div>	
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

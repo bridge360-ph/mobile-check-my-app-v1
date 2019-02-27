@@ -1,0 +1,121 @@
+<ion-view view-title="Mandate Analysis">
+    <ion-content>
+    <div class="row">
+      <div class="col">
+    <div class="item item-divider divHead">
+     Identify Service Categoty     
+     </div>
+      <!-- <ion-list>
+        <div ng-repeat="group in groups" ng-show="$index < show">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            {{group.cat_name}}
+              
+          </ion-item>
+          <ion-item class="item-accordion accHeight"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            <div class="row"><div class="label_Div">{{item.sub_cat_name}}</div>
+            <div class="toggle_Div"><label class="toggle toggle-energized manadateToggle">
+                <input type="radio" name="serviceCategory" ng-click="get_service_id({{item.service_item_id}});items()">
+                 <div class="track">
+                   <div class="handle"></div>
+                 </div>
+              </label></div></div>
+          </ion-item>
+        </div>
+      </ion-list> --> 
+
+        <div class="item item-input item-floating-label">
+            <!-- <span class="input-label labelColor">Service Category</span> -->
+
+                <label>Select Service Category</label>
+                <select class="dropdown" ng-model="cat" ng-change="afterCategory(cat);items2();" name="service_category" required> 
+                  <option value="" selected="true">Select Service Category</option>
+              <option  ng-repeat="i in groups | orderBy :'cat_name'" value="{{i.category_id}}">{{i.cat_name}}</option>   
+        </select>
+<!-- | orderBy :'cat_name' -->
+<!-- value="{{$index}}" -->
+              <div ng-messages="addIssueForm.service_category.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!addIssueForm.service_category.$valid">Please Enter Service Category</div>
+            </div>
+
+        </div>
+
+
+     <!--  <button class="button button-energized button-block sign_btn" 
+        ng-click="loadNextPage()" ng-if="hide_more">See More
+        </button>
+ -->
+        <!-- <button class="button button-energized button-block sign_btn" 
+        ng-click="loadprevPage()" ng-if="!hide_more">See Less
+        </button> -->
+      </div>
+  </div>
+   <div class="row" ng-show="hideshow2">
+      <div class="col">
+        <div class="item item-divider divHead" >
+        Identify Service Item     
+
+        </div>
+
+         <div class="item item-input item-floating-label">
+            <!-- <span class="input-label labelColor">Service Category</span> -->
+
+                <label>Select Service Category Items</label>
+                <select class="dropdown" ng-model="cat2" ng-change="get_service_id(cat2);items();" name="service_category" required> 
+                  <option value="" selected="true">Select Service Category</option>
+                  <option ng-if='othercategoryid == 35' value="0">Specific Concern</option>
+                  <option  ng-repeat="i in groups2.items | orderBy :'sub_cat_name'" value="{{i.service_item_id}}">{{i.sub_cat_name}}</option>  
+                </select>
+
+              <div ng-messages="addIssueForm.service_category.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!addIssueForm.service_category.$valid">Please Enter Service Category</div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="row" ng-show="hideshow">
+      <div class="col">
+    <div class="item item-divider divHead" >
+  Identify issue type     
+  </div>
+
+       <div class="item item-input item-floating-label">
+            <!-- <span class="input-label labelColor">Service Category</span> -->
+
+                <label>Select Issue</label>
+                <select class="dropdown" ng-model="cat3" ng-change="get_issue_id(cat3)" name="service_category" required> 
+                  <option value="" selected="true">Select Issue</option>
+              <option  ng-repeat="i in groups3 | orderBy :'issue_name'" value="{{i.issue_id}}">{{i.issue_name}}</option>   
+        </select>
+
+              <div ng-messages="addIssueForm.service_category.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!addIssueForm.service_category.$valid">Please Enter Service Category</div>
+            </div>
+
+        </div>
+      </div>
+  </div>
+  <div class="row textareadiv" ng-if="displaytextare">
+      <textarea name="comment" rows="8" class="col textareacss" placeholder="Enter comment" ng-model="data1.comment">
+  </textarea>
+
+  </div>
+  <div class="row" ng-if="!displaytextare">   
+      <button class="button button-energized button-block sign_btn" ui-sref="app.viewmandateanalysis" ng-click="view_mandate()" ng-disabled="isdisabled">
+        View Mandate Analysis
+      </button>
+  </div>
+  <div class="row" ng-if="displaytextare">   
+      <button class="button button-energized button-block sign_btn" ng-click="send()">
+        Save
+      </button>
+  </div>
+  </ion-content>
+</ion-view>
+    

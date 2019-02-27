@@ -1,0 +1,30 @@
+<ion-view view-title="Verify code">
+	<ion-content>
+		<div class="row">
+			<div class="col ColMargin">
+				<img src="img/CMS.png" class="RegLogo" ui-sref="login">
+			</div>
+		</div>
+		<form name="varificationForm">
+		<p class="verifyLabel">Verification code sent to your email address. Please enter in below textbox</p>
+			<div class="list">
+
+				<label class="item item-input item-floating-label">
+				    <span class="input-label labelColor">Verification code</span>
+				    <input type="text" placeholder="Verification code" ng-model="data.code" name="code" required="">
+
+				 <div ng-messages="varificationForm.code.$error" ng-if='submittedCode'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!varificationForm.code.$valid">Please Enter Verification Code</div>
+		        </div>
+
+				</label>
+					<button class="button button-positive sendCode" ng-click="varifyCode(varificationForm)">
+						Verify Code
+					</button>
+					<button class="button button-clear button-block sign_btn" ng-click="resend_code()">
+			           Not received code? Resend now
+			        </button>
+			</div>
+		</form>
+	</ion-content>	
+</ion-view>

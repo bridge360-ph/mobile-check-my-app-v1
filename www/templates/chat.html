@@ -1,0 +1,134 @@
+<ion-view view-title="Chat">
+  <ion-segment ng-model="categories" full="true" class="segColl" energized>
+  <ion-segment-button value="collaborated">
+    Chat
+  </ion-segment-button>
+  <ion-segment-button value="chat">
+    Collaborated
+  </ion-segment-button>
+</ion-segment>
+<ion-content class="has-header has-subheader content-stable" on-swipe-left="hideTime = false"   on-swipe-right="hideTime = true">
+<div class="bar bar-header bar-subheader item-input-inset sticky searchchat-header">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="text" placeholder="Search" ng-model="test">
+  </label>
+  <button class="button button-clear sign_btn" ng-click="test = ''">
+    Cancel
+  </button>
+</div>
+  <div ng-switch="categories">
+      <ion-list can-swipe="true" ng-switch-when="collaborated">
+          <!-- <ion-item class="sch_subitem frndPadd"> -->
+            
+            <div class="col-md-4 bg-white ">
+                
+              <button class="button button-dropdown" modal-select ng-model="Select_id" options="UserlList" modal-title="Select User" on-select="SelectUser(newValue, oldValue)">
+                New Chat
+                <div class="option">
+                    {{option.name}}
+                </div>
+            </button>
+            <ul class="friend-list">
+                <li class="active bounceInDown" ng-repeat="chat in chatData  | orderBy:'-added_date' | filter:test " ng-click="DetailPage(chat)">
+                  <!-- ui-sref="app.viewchat({'sender_id':chat.sender_id,'receiver_id':chat.receiver_id})" -->
+
+                  <a href="javascript:void(0)" class="clearfix">
+                  
+                   <img ng-src="{{chat.image}}" class="colbImg" ng-if="chat.image != ''"  alt="" class="img-circle">
+                  
+                  <img src="img/user.png" class="colbImg" ng-if="chat.image == ''"  alt="no found" class="img-circle">
+                    <!-- <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle"> -->
+                    <div class="friend-name"> 
+                      <strong>{{chat.name}}</strong>
+                    </div>
+                    <!-- <div class="last-message text-muted" ng-class="{ 'makebold' : {{chat.is_read}} == 'N'}"> -->
+                      
+                    <div class="last-message text-muted" ng-class="{{chat.is_read}}=='N' ? 'makebold' :'' "  >
+
+                    {{chat.message_text}}</div>
+                    <small class="time text-muted">{{ chat.cdate}}</small>
+                    <!-- <small class="chat-alert label label-danger">1</small> -->
+                  </a>
+                </li>
+                 <!--  <li class="active bounceInDown" ng-if="chatData.length < 1" >
+                   <a href="javascript:void(0)" class="clearfix">
+                    
+                     <div class="friend-name"> 
+                        <strong>No User Chat</strong>
+                      </div>
+                    </a>
+                </li>      -->        
+            </ul>
+    </div>
+
+          <!-- </ion-item> -->
+<ion-item class="sch_subitem frndPadd" ng-if="chatData.length < 1">
+            <div class="row">
+              <div class="">
+                <img src="img/user.png" class="colbImg">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>No chat</h2>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+        
+
+        <ion-list can-swipe="true" ng-switch-when="chat" class="collaboratelist">
+
+         <div class="col-md-4 bg-white ">
+            <!-- =============================================================== -->
+            <!-- member list -->
+            <ul class="friend-list">
+                <li class="active bounceInDown" ng-repeat="c in collaborator" ng-click="DetailPage2(c)">
+                   <a href="javascript:void(0)" class="clearfix">
+                    
+                    <img ng-src="{{c.image}}" class="colbImg" ng-if="c.image != ''">
+                    <img src="img/user.png" class="colbImg" ng-if="c.image == ''">
+                     <div class="friend-name"> 
+                      
+                      <strong>{{c.name}}</strong>
+                    </div>
+                    </a>
+                </li>
+                <!--  <li class="active bounceInDown" ng-if="collaborator.length < 1" >
+                   <a href="javascript:void(0)" class="clearfix">
+                    
+                     <div class="friend-name"> 
+                        <strong>No User</strong>
+                      </div>
+                    </a>
+                </li> -->
+
+            </ul>
+          </div>
+
+         <!--  <ion-item class="sch_subitem frndPadd" ng-repeat="c in collaborator">
+            <div class="row">
+              <div class="">
+               
+              </div>
+              <div class="col col-80 frndName">
+                <h2>{{c.name}}</h2>
+              </div>
+            </div>
+          </ion-item> -->
+          <ion-item class="sch_subitem frndPadd" ng-if="collaborator.length < 1">
+            <div class="row">
+              <div class="">
+                <img src="img/user.png" class="colbImg">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>No Collaborated User</h2>
+              </div>
+            </div>
+          </ion-item>
+
+        </ion-list>
+    </div>
+</ion-content>
+
+
+</ion-view>

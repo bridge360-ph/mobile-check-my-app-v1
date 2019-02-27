@@ -1,0 +1,194 @@
+<ion-view view-title="ContactsUs">
+  <ion-segment ng-model="categories" full="true" class="segColl" energized>
+  <ion-segment-button value="Contact Us">
+    Contact Us
+  </ion-segment-button>
+  <ion-segment-button value="Feedback">
+    Feedback
+  </ion-segment-button>
+</ion-segment>
+<ion-content class="has-header has-subheader content-stable" on-swipe-left="hideTime = false"   on-swipe-right="hideTime = true" data-ng-init="init()">
+
+  <!-- <div class="bar bar-header bar-subheader item-input-inset sticky searchchat-header">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="text" placeholder="Search" ng-model="test">
+  </label>
+  <button class="button button-clear sign_btn" ng-click="test = ''">
+    Cancel
+  </button>
+</div> -->
+  <div ng-switch="categories">
+      <ion-list can-swipe="true" ng-switch-when="Contact Us"> 
+          <ion-list> 
+              <h4><ion-item class="contactmainlist">Directory</ion-item></h4>
+            <div class="col">
+
+              <!-- <div class="row AccPadd contactlist" ng-class="startSC">
+                <div class="col">
+                  <ion-list>
+                    <div ng-repeat="group2 in groups2" id="group{{group2.id}}">
+                      <ion-item class="item-stable view-issue-item listcontact" ng-click="toggleGroup2(group2)"
+                          ng-class="{active: isGroupShown2(group2)}" ui-sref="{{group2.state}}">
+                        <i class="icon" ng-class="isGroupShown2(group2) ? 'ion-minus' : 'ion-plus'"></i>
+                        &nbsp;
+                        {{group2.name}}
+                      </ion-item>
+                      <ion-item class="item-accordion borderBlue"
+                          ng-repeat="item in group2.items"
+                          ng-show="isGroupShown2(group2)" ng-class="{subactive: isGroupShown2(group2)}" >
+                        <i style="font-size: 15px;">{{item.subId}}
+                          <a href="{{item.url}}" target="_system">{{item.url}}
+                          </a>
+                        </i>
+                      </ion-item>
+                  
+                    </div>
+                  </ion-list>
+              </div>
+            </div> -->
+
+
+
+               <ion-list>
+
+      <div ng-repeat="group in groups">
+
+        <ion-item class="item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+          
+          <div class="item-text-center item-text-wrap">{{group.name}}</div>
+          <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+        </ion-item>
+
+        <ion-item class="item-accordion1 item-icon-right" ng-repeat="item in group.childItems"  ng-show="isGroupShown(group)">
+
+          <div class="item-text-center item-text-wrap" ng-click="toggleSubGroup(item)">{{item.childName}}
+          <i class="icon" ng-class="isSubGroupShown(item) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down' "></i>
+          </div>
+          <div class="item-accordion1 sub-item" ng-repeat="child in item.grandChildren" ng-show="isSubGroupShown(item)">
+            <div class="item-text-center item-text-wrap" ng-click="SwitchFuction(child.id)">{{child.grandChildName}}</div>
+          </div>
+
+        </ion-item>
+
+      </div>
+
+    </ion-list>
+
+
+              <!-- <ion-list>
+                <div ng-repeat="group in groups2">
+                  <ion-item ng-click="link(group.id)">{{group.name}}</ion-item>
+                    <div ng-repeat="group12 in groups1" >
+                        <ion-item ng-if="group12.id=1">{{group12.name}}
+                        </ion-item>
+                        <ion-item ng-if="group12.id=1">{{group12.url}}
+                        </ion-item>
+                    </div>
+                </div>
+              </ion-list> -->
+          
+          </div>
+        </ion-list>
+      </ion-list>
+
+
+      <ion-list can-swipe="true" ng-switch-when="Feedback">
+        <h5 class="feedbackh5">For comments, suggestions, queries and further information, contact CheckMySchool Secretariat.</h5>
+      <form name="feedbackForm">
+        <div class="list">
+
+        <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Name</span>
+            <input type="text" placeholder="Name" ng-model="data.user_name" name="user_name" required="">
+
+         <div ng-messages="feedbackForm.user_name.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!feedbackForm.user_name.$valid">Please Enter Name</div>
+            </div>
+
+        </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Email</span>
+            <input type="email" placeholder="Email" ng-model="data.email_id" name="email_id" required="">
+
+          <div ng-messages="feedbackForm.email_id.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!feedbackForm.email_id.$valid">Please Enter Email</div>
+            </div>
+          </label>
+
+
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Subject</span>
+            <input type="text" placeholder="Subject " ng-model="data.subject" name="subject" required="">
+
+          <div ng-messages="feedbackForm.subject.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!feedbackForm.subject.$valid">Please Enter Subject</div>
+            </div>
+          </label>
+
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Type of Concern</span>
+            
+           
+          <ion-list>
+            <ion-radio ng-model="data.type_of_concern" name="type_of_concern" ng-value="'Query'" class="radiofeedback" checked>Query</ion-radio>
+
+            <ion-radio ng-model="data.type_of_concern" name="type_of_concern" ng-value="'Complaint/feedback'" class="radiofeedback">Complaint/feedback</ion-radio>
+
+            <ion-radio ng-model="data.type_of_concern" name="type_of_concern" ng-value="'Suggestion'" class="radiofeedback">Suggestion
+            </ion-radio>
+
+            <ion-radio ng-model="data.type_of_concern" name="type_of_concern" ng-value="'Request'" class="radiofeedback">Request
+            </ion-radio>
+
+            <ion-radio ng-model="data.type_of_concern" name="type_of_concern" ng-value="'Others'" class="radiofeedback">Others
+            </ion-radio>
+          </ion-list>
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Message</span>
+            <input type="text" placeholder="Message" ng-model="data.message" name="message" required="">
+
+      <div ng-messages="feedbackForm.message.$error" ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+                  <div ng-message="required" class="error message"  ng-show="feedbackForm.message.$error.required">Please enter Message</div>          
+
+                  
+       </div>
+              
+          </label>
+
+          
+
+      </div>
+      <div class="row feedbackdivrow">
+        
+          <button class="button button-energized sign_btn feedbackbutton" ng-click="feedback(feedbackForm)">
+            Submit
+          </button>
+        
+      </div>
+    </form>
+        <div class="card">
+          <h4 class="feedbackh5 h5firstcolor"><b>CheckMySchool Secretariat</b></h4>
+            <h5><p class="feedbackh5">Affiliated Network for Social Accountability in East Asia and the Pacific Address:</p>
+            <p class="feedbackh5">3rd Floor, Mansi Bldg. | 337 Katipunan Avenue | Quezon City | Metro Manila, Philippines</p></h5>
+
+            <h5><p class="feedbackh5">Telefax:
+            <i class="feedbacki">+632-426-0185</i></p></h5>
+
+            <h5><p class="feedbackh5">Follow us on:
+            <i class="feedbacki">www.ansa-eap.net | www.checkmyschool.org</i>
+              </p></h5>            
+          <!-- <p>Affiliated Network for Social Accountability in East Asia and the Pacific Address: 3rd Floor, Mansi Bldg. | 337 Katipunan Avenue | Quezon City | Metro Manila, Philippines Telefax: +632-426-0185
+          Follow us on: www.ansa-eap.net | www.checkmyschool.org</p> -->
+        </div>
+      </ion-list>
+</div>
+
+
+        
+
+</ion-content>
+
+
+</ion-view>

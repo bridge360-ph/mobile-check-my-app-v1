@@ -1,0 +1,41 @@
+<ion-view view-title="Resonsereport">
+	<ion-content scroll="true">
+		<form name="addresponsereportform">
+			<div class="row responsive-sm ContentPad">
+				<div class="col idenCol">
+					<p class="padBottom">Follow up on the feedback report.</p>
+					<p class="padBottom">Template</p>
+					
+					<p class="padBottom">We would like to follow up on the feedback letter we transmitted to your office dated last 
+						<input type="text" name="date" ng-model="data3.date" placeholder="Date" id="datatext">
+
+						<i ng-messages="addresponsereportform.date.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addresponsereportform.date.$valid">Please Enter Date</i>
+		       		 	</i>, concerning the issue of 
+
+		       		 	<input type="text" name="issue" ng-model="data3.issue" placeholder="school issue" id="datatext">
+
+		       		 	<i ng-messages="addresponsereportform.issue.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addresponsereportform.issue.$valid">Please Enter Issue</i>
+		       		 	</i>in 
+
+		       		 	<input type="text" name="school" placeholder="Name of School" ng-model="data3.school" id="datatext">.
+
+		       		 	<i ng-messages="addresponsereportform.school.$error" 
+            			ng-if='submitted' style="color:red;font-size: 13px;" role="alert">
+		            		<i ng-message="required" class="error message"  ng-show="!addReportForm.school.$valid">Please Enter School</i>
+		       		 </i>
+					</p>
+					<p>Thank you for your attention.</p>
+				
+					<button class="button button-energized sign_btn" ng-click="addresponsereport(addresponsereportform)">
+			  		Save
+					</button>
+				</div>
+			</div>
+			
+		</form>
+	</ion-content>
+</ion-view>

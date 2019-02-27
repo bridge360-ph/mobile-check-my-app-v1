@@ -1,0 +1,79 @@
+<ion-view view-title="View Reported Issue">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon ion-trash-a plusIcon" ng-click="removeIssue()"></button>
+	  <button class="setbtn" ng-click="viewmended()">Mandate</button>
+	</ion-nav-buttons>
+	<ion-content scroll="true"  delegate-handle="scroll">
+		<div class="row issPadd">
+	  		<div class="col">
+	  		<h3 class="issHead">{{issue_name}}</h3>
+	  		</div>
+	  		
+		</div>
+		<hr>
+		<div class="card">
+			<div class="row">
+				<div class="col col-50">
+					<img src="img/issue1.png" class="viewissImg" ng-if="issueData.image ==''">
+					<img src="{{issue_image}}" class="viewissImg" ng-if="issueData.image !=''">
+					
+				</div>
+				<div class="col col-50">
+					<h4 class="description">Issue Name</h4>
+						<p>{{issueData.title}}</p>
+
+					<!-- <h4 class="description">Service category</h4>
+						<p>{{issueData.service_category_name}}</p>
+
+					<h4 class="description">Service item</h4>
+						<p>{{issueData.service_item_name}}</p>
+
+					<h4 class="description">Issue type</h4>
+						<p>{{issueData.issue_type_name}}</p> -->
+
+					<h4 class="description">Mandated Agency</h4>
+						<p>{{issueData.mandated_agency}}</p>
+
+					<h4 class="description">Date Spotted</h4>
+						<p>{{issueData.added_date | date:'MM/dd/yyyy'}}</p>
+
+					<h4 class="description">Status</h4>
+						<p>{{issueData.is_resolved === 'Y' ? 'Resolved':'Ongoing'}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-50">
+				<button class="button button-block sign_btn solution" ng-click="startSolutionChaser()">
+			  		Start Solution Chaser
+				</button>
+			</div>
+			<div class="col col-50">
+				<button class="button button-energized button-block sign_btn later" ui-sref="app.listissues" ui-sref="app.listissues">
+			  		Later
+				</button>
+			</div>
+		</div>
+		<div class="row AccPadd" ng-class="startSC">
+	    	<div class="col">
+		        <ion-list>
+			        <div ng-repeat="group2 in groups2" id="group{{group2.id}}">
+			          <ion-item class="item-stable view-issue-item"
+			                    ng-click="toggleGroup2(group2)"
+			                    ng-class="{active: isGroupShown2(group2)}" ui-sref="{{group2.state}}" style="font-size: 18px;">
+			              <i class="icon" ng-class="isGroupShown2(group2) ? 'ion-minus' : 'ion-plus'"></i>
+			            &nbsp;
+			            {{group2.name}} <h2 class="stars">{{group2.stars}}</h2>
+			          </ion-item>
+			          <ion-item class="item-accordion borderBlue"
+			                    ng-repeat="item in group2.items"
+			                    ng-show="isGroupShown2(group2)" ng-class="{subactive: isGroupShown2(group2)}" ng-click="callnext(item)">
+			            <i style="font-size: 20px;">{{item.subId}}</i>
+			            <!-- ui-sref="{{item.state}}" -->
+			          </ion-item>
+			        </div>
+		      	</ion-list>
+	      	</div>
+		</div>
+	</ion-content>
+</ion-view>

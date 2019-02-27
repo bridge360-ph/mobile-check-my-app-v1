@@ -1,0 +1,99 @@
+<ion-view view-title="Add School">
+	<ion-content>
+		<!-- <div ng-repeat="data in Regions">
+			{{data}}
+		</div> -->
+	<form name="addIssueForm">
+		<div class="list"> 
+			
+			
+			<div class="item item-input item-floating-label">
+				<span class="input-label labelColor">Region</span>
+			    <!-- <input type="text" placeholder="Region Name"> -->
+			   <!--  <div angucomplete-alt id="txtAutocomplete" placeholder="Type Region name" pause="100"
+                 selected-object="afterSelectedRegion" local-data="Regions" search-fields="name"
+                 title-field="name" minlength="1" input-class="form-control" match-class="highlight" field-required="true" input-name="region">
+            	</div>
+ -->
+		        <!-- <select ng-option="region.region_id as region.name for region in Regions" ng-model="Select"> 	
+		        </select> -->
+
+		        <label>Select Region</label>
+		         <select class="dropdown" ng-model="Select" ng-change="afterSelectedRegion(Select)" name="region" required> 
+		         	<option value="" selected="true">Select Region</option>
+					<option  ng-repeat="region in Regions" value="{{region.region_id}}">{{region.name}}</option>  
+				</select>
+
+            	<div ng-messages="addIssueForm.region.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!addIssueForm.region.$valid">Please Select Region</div>
+		        </div>
+
+			</div>
+		  	<div class="item item-input item-floating-label">
+			    <span class="input-label labelColor">Division</span>
+			    <!-- <input type="text" placeholder="Division Name"> -->
+		  		<!-- <div angucomplete-alt id="txtAutocomplete" placeholder="Type Division name" pause="100"
+                 selected-object="afterSelectedDivision" local-data="Divisions" search-fields="name"
+                 title-field="name" minlength="1" input-class="form-control" match-class="highlight" field-required="true" input-name="division">
+            	</div> -->
+
+            	<label>Select Division</label>
+		         <select class="dropdown" ng-model="DivSelect" ng-change="afterSelectedDivision(DivSelect)" name="division" required> 
+		         <option value="">Select Division</option> 
+					<option ng-repeat="div in Divisions | orderBy : 'name'" value="{{div.division_id}}" >{{div.name}}</option>  
+				</select> 
+
+            	<div ng-messages="addIssueForm.division.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!addIssueForm.division.$valid">Please Select Division</div>
+		        </div>
+
+		  	</div>
+		  	<div class="item item-input item-floating-label">
+			    <span class="input-label labelColor">City/Municipality</span>
+			    <!-- <input type="text" placeholder="City/Municipality Name"> -->
+		  		<!-- <div angucomplete-alt id="txtAutocomplete" placeholder="Type City/Municipality name" pause="100"
+                 selected-object="afterSelectedCity" local-data="Citys" search-fields="name"
+                 title-field="name" minlength="1" input-class="form-control" match-class="highlight" field-required="true" input-name="city">
+            	</div> -->
+
+            	<label>Select City</label>
+		        <select class="dropdown" ng-model="CitySelect" ng-change="afterSelectedCity(CitySelect)" name="city" required>  
+		        	 <option value="">Select City</option> 
+					<option ng-repeat="city in Citys | orderBy : 'name'" value="{{city.city_id}}" >
+					{{city.name}}</option>  
+				</select>
+
+            <div ng-messages="addIssueForm.city.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!addIssueForm.city.$valid">Please Select City</div>
+		        </div>
+		  	</div>
+		  	
+		  	<div class="item item-input item-floating-label">
+			  	<span class="input-label labelColor">School Name</span>
+			  	
+				<!-- <div angucomplete-alt id="txtAutocomplete" placeholder="Type School name" pause="100"
+                 selected-object="afterSelectedSchool" local-data="Schools" search-fields="name"
+                 title-field="name" minlength="1" input-class="form-control" match-class="highlight" field-required="true" input-name="school">
+            	</div> -->
+
+            	<label>Select School</label>
+		        <select class="dropdown" ng-model="SchoolSelect" ng-change="afterSelectedSchool(SchoolSelect)" name="school" required> 
+		        	 <option value="">Select School</option>
+					<option ng-repeat="school in Schools" value="{{school.school_id}}">{{school.name}}</option>  
+				</select>
+
+            <div ng-messages="addIssueForm.school.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!addIssueForm.school.$valid">Please Select School</div>
+		        </div>
+           </div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="button button-energized button-block sign_btn" ng-click="addschool(addIssueForm)">
+			  		Add School
+				</button>
+			</div>
+		</div>
+	</form>	
+	</ion-content>
+</ion-view>

@@ -1,0 +1,58 @@
+<ion-view view-title="Edit Profile">
+	<ion-content>
+		<form name="updateProfileForm">
+			<div class="list">
+					<div class="col ColMargin">
+						<!-- <img src="{{data.image}}" class="profileImg"> -->
+						<img src="img/user.png" class="profileImg" ng-if="data.image == ''" ng-click="showPopup()" ng-src="{{cameraimage64}}">
+						<img src="{{data.image}}" class="profileImg" ng-if="data.image != ''" ng-click="showPopup()" ng-src="{{cameraimage64}}">
+						<!-- <img ng-src="{{cameraimage64}}" > -->
+						<img src="img/camera.png" class="cameraImg">
+					</div>
+				<label class="item item-input item-floating-label">
+				    <span class="input-label labelColor">Name</span>
+				    <input type="text" placeholder="Name" ng-model="data.name" name="uname" required="">
+
+				 <div ng-messages="updateProfileForm.uname.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!updateProfileForm.uname.$valid">Please Enter Name</div>
+		        </div>
+
+				</label>
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Email</span>
+			    	<input type="email" placeholder="Email" ng-model="data.email_address" name="mail" required="">
+
+			  	<div ng-messages="updateProfileForm.mail.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!updateProfileForm.mail.$valid">Please Enter Email</div>
+		        </div>
+			  	</label>
+
+
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label labelColor">Contact Number</span>
+			    	<input type="text" placeholder="Contact Number" ng-model="data.contact_number" name="contact_number" required="">
+			  	<div ng-messages="updateProfileForm.contact_number.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+		            <div ng-message="required" class="error message"  ng-show="!updateProfileForm.contact_number.$valid">Please Enter Contact Number</div>
+		        </div>
+			  	</label>
+			</div>
+			<div class="row">
+				<div class="col col-50">
+					<button class="button button-energized button-block sign_btn" ng-click="updateProfile(updateProfileForm)">
+						Update Profile
+					</button>
+				</div>
+				<div class="col col-50">
+					<button class="button button-block resetBtn" ng-click="resetdata()">
+						Reset
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<button class="button button-energized button-block sign_btn" ui-sref="app.resetchangepassword">
+					Change Password
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

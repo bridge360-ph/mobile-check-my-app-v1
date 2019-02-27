@@ -1,0 +1,121 @@
+<ion-view view-title="Request More info">
+	<ion-content>
+		
+		<ion-list>
+			<div ng-repeat="list in listData0">
+				<ion-item>
+					<h3>Signed Cooperation Form</h3>
+					<a ng-click="openURL('{{list.signed_cooperation_form}}')" ng-if="list.signed_cooperation_form !=''">
+					{{list.signed_cooperation_form}}</a>
+
+				<h4 ng-if="list.signed_cooperation_form ==''">No PDF File Available</h4>
+				</ion-item>
+				<ion-item>
+					<h3>Signed Statment Form</h3>
+
+					<a ng-click="openURL('{{list.signed_statment_form}}')" ng-if="list.signed_statment_form !=''">
+					{{list.signed_statment_form}}</a>
+
+				<h4 ng-if="list.signed_statment_form ==''">No PDF File Available</h4>
+
+					<!-- <a ng-click="openURL('{{list.signed_statment_form}}')">
+					{{list.signed_statment_form}}</a> -->
+				</ion-item>
+			</div>
+			<div ng-repeat="list in listData1">
+				<ion-item>
+					<h3>Acknowledge Sign</h3>
+					<img class="imginfo" ng-src='{{story_imageUrl}}{{list.acknowledge_sign}}' 
+					ng-if="list.acknowledge_sign !=''" zoom-src="{{story_imageUrl}}{{list.acknowledge_sign}}" zoom-view />
+
+				<h4 ng-if="list.acknowledge_sign ==''">Image Not Available</h4>
+
+				</ion-item>
+				<ion-item>
+					<h3>Copy Of Acknowledgment</h3>
+
+					<a ng-click="openURL('{{list.copy_of_acknowledgment}}')" ng-if="list.copy_of_acknowledgment !=''">
+					{{list.copy_of_acknowledgment}}</a>
+
+				<h4 ng-if="list.copy_of_acknowledgment ==''">No PDF File Available</h4>
+
+					<!-- <a ng-click="openURL('{{list.copy_of_acknowledgment}}')">{{list.copy_of_acknowledgment}}</a> -->
+
+				</ion-item>
+				<ion-item>
+					<h3>Copy Of Agreement</h3>
+					<a ng-click="openURL('{{list.copy_of_agreement}}')" ng-if="list.copy_of_agreement !=''">
+					{{list.copy_of_agreement}}</a>
+
+				<h4 ng-if="list.copy_of_agreement ==''">No PDF File Available</h4>
+
+
+
+					<!-- <a ng-click="openURL('{{list.copy_of_agreement}}')">{{list.copy_of_agreement}}</a> -->
+					
+				</ion-item>
+				<ion-item>
+					<h3>Photo Of Agreement</h3>
+					<!-- {{list.photo_of_agreement}} -->
+					<img class="imginfo" ng-src='{{resolve}}{{list.photo_of_agreement}}' 
+					ng-if="list.photo_of_agreement !=''" zoom-src="{{resolve}}{{list.photo_of_agreement}}" zoom-view />
+
+					<h4 ng-if="list.photo_of_agreement ==''">Image Not Available</h4>
+
+				</ion-item>
+				<ion-item>
+					<h3>Photo Of Improved Service</h3>
+					<!-- {{list.photo_of_improved_service}} -->
+					<img class="imginfo" ng-src='{{resolve}}{{list.photo_of_improved_service}}'
+					ng-if="list.photo_of_improved_service !=''" zoom-src="{{resolve}}{{list.photo_of_improved_service}}" zoom-view />
+
+					<h4 ng-if="list.photo_of_improved_service ==''">Image Not Available</h4>
+				</ion-item>
+			</div>
+			<div ng-repeat="list in listData2">
+				<ion-item>
+					<h3>Signature File</h3>
+					<!-- <img src="{{statement_forms}}{{list.signature_file}}"> -->
+					<img class="imginfo" ng-src='{{feedback}}{{list.signature_file}}' 
+					ng-if="list.signature_file !=''" zoom-src="{{feedback}}{{list.signature_file}}" zoom-view />
+
+					<h4 ng-if="list.signature_file ==''">Image Not Available</h4>
+				</ion-item>
+				<ion-item>
+					<h3>Stamp Report File</h3>
+					<!-- <img src="{{statement_forms}}{{list.stamp_report_file}}"> -->
+
+					<a ng-click="openURL('{{list.stamp_report_file}}')" 
+					ng-if="list.stamp_report_file !=''">
+					{{list.stamp_report_file}}</a>
+
+				<h4 ng-if="list.stamp_report_file ==''">No PDF File Available</h4>
+
+
+					<!-- <img class="imginfo" ng-src='{{feedback}}{{list.stamp_report_file}}'
+					ng-if="list.stamp_report_file !=''" 
+					zoom-src="{{feedback}}{{list.stamp_report_file}}" zoom-view />
+
+					<h4 ng-if="list.stamp_report_file ==''">Image Not Available</h4> -->
+				</ion-item>
+			</div>
+			<div ng-repeat="list in listData3">
+				<ion-item>
+					<h3>Story Picture one</h3>
+					<img class="imginfo" ng-src='{{story_imageUrl}}{{list.story_picture_one}}' ng-if="list.story_picture_one !=''" zoom-src="{{story_imageUrl}}{{list.story_picture_one}}" zoom-view />
+
+					<h4 ng-if="list.story_picture_one ==''">Image Not Available</h4>
+				</ion-item>
+				<ion-item>
+					<h3>Story Picture Two</h3>
+					<img class="imginfo" ng-src='{{story_imageUrl}}{{list.story_picture_two}}' 
+						ng-if="list.story_picture_two !=''"
+					 zoom-src="{{story_imageUrl}}{{list.story_picture_two}}" zoom-view />
+
+					 <h4 ng-if="list.story_picture_two ==''">Image Not Available</h4>
+				</ion-item>
+			</div>
+		</ion-list>
+				
+	</ion-content>
+</ion-view>

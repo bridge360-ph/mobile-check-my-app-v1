@@ -1,0 +1,45 @@
+<ion-view view-title="Government agree solution">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Get the government office to explicitly agree on a solution to the issue.</p>
+				<form ng-submit="">
+				<div class="padBottom">
+					<ion-list>
+						<ion-radio ng-model="choice" ng-value="'Email'">Email</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Text'">Text</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Printed letter'">Printed letter
+						</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Audio recording'">Audio recording
+						</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Audio recording'">Minutes of meeting
+						</ion-radio>
+						<label class="item item-input">
+					    	<span class="input-label itemWrap ser_Item">Monetary value of monitored service item: PHP</span>
+					    	<input type="text" class="sourceTxtbx textbox_margin_left" ng-model="temp.monitory_value">
+					  	</label>
+					  	<label class="item item-input">
+					    	<span class="input-label">Sources of fund:</span>
+					    	<input type="text" class="sourceTxtbx" ng-model="temp.source_fund">
+					  	</label>
+					</ion-list>
+					</div>
+					<h4 class="report">Upload copy of agreement.</h4>
+						<img src="img/report.png" class="photoImg reportImg">
+					<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save(choice)">
+			  		Save
+				</button>
+
+					<button class="button button-energized button-block sign_btn" ng-click="clickme()" ng-if="uploaded == 'ok'">
+			  		Dowload
+				</button>
+
+					<input type="file" id="fileinput" name="file" ng-model="files" on-file-change="onSelected" />
+
+					<a href="" download></a>
+				</form>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

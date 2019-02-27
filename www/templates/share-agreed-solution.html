@@ -1,0 +1,35 @@
+<ion-view view-title="Share agreed solution">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Inform concerned people on the agreed solution:</p>
+				<form ng-submit="">
+				<div class="padBottom">
+					<ion-list>
+						<ion-checkbox ng-model="choice[0]" ng-value="'Email'" ng-change="format()">Email</ion-checkbox>
+						<ion-checkbox ng-model="choice[1]" ng-value="'Text'" ng-change="format()">Text</ion-checkbox>
+						<ion-checkbox ng-model="choice[2]" ng-value="'Meeting'" ng-change="format()">Meeting
+						</ion-checkbox>
+						<ion-checkbox ng-model="choice[3]" ng-value="'FB'" ng-change="format()">FB
+						</ion-checkbox>
+						<ion-checkbox ng-model="choice[4]" ng-value="'Visit'" ng-change="format()">Visit
+						</ion-checkbox>
+					</ion-list>
+					</div>
+					<div class="padBottom">
+						<div class = " item item-divider itemWrap">
+					     	How many received information about the agreed solution?
+					   	</div>
+					  	<label class="item item-input">
+					    	<input type="text" class="sourceTxtbx" ng-model="temp.people_agree">
+					  	</label>
+					  </div>
+					<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save()">
+			  		Save
+				</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

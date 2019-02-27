@@ -1,0 +1,26 @@
+<ion-view >
+	<ion-nav-title>
+        <span class="title1">Send report to school and mandated office.</span>
+     </ion-nav-title>
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Send report through:</p>
+				<div class="padBottom">
+					<ion-list>
+						<ion-radio ng-model="choice" ng-value="'Email'" ng-click="stateChanged1()">Email</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Hand-carry'" ng-click="stateChanged1()">Hand-carry</ion-radio>
+						<ion-radio ng-model="choice" ng-value="'Other means'" ng-click="stateChanged()">Other means
+						</ion-radio>
+						<label class="item item-input hideshow">
+					    	<input type="text" class="sourceTxtbx" ng-model="abc.other" placeholder="other">
+					  	</label>
+					</ion-list>
+					<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save(choice)">
+			  		Save
+				</button>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

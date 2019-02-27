@@ -1,0 +1,48 @@
+<ion-view view-title="Acknowledge Issue">
+	<ion-content scroll="true">
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Get government office to acknowledge your issue.</p>
+				<p>
+					If you have not reported it yet, fill up this <a href="app.report" ui-sref="app.report">form</a>. Or if feedback report has been previously sent, follow up the response to it using this <a ui-sref="app.responsereport">form</a>. Or you may ask for opportunity to personally present your issue/s or the feedback report to the identified government office.
+				</p>
+				<form ng-submit="">
+				<!-- <div class="padBottom">
+					<ion-list>
+						<ion-radio ng-model="choice" name="choice"  ng-value="'Email'">Email</ion-radio>
+						<ion-radio ng-model="choice" name="choice" ng-value="'Hand-carry'">Hand-carry</ion-radio>
+						<ion-radio ng-model="choice" name="choice" ng-value="'Other means'">Other means
+						</ion-radio>
+					</ion-list>
+				</div> -->
+					<!-- <p class="padBottom">You may ask for opportunity to personally present your issue/s or the feedback report to the identified government office.</p> -->
+					<p class="padBottom">Note that the government office must explicitly acknowledge the issue. That it exists and they will do something about it.</p>
+					<div class="padBottom">
+					<ion-list>
+						<ion-radio ng-model="choice2" name="choice2" ng-value="'Email'">Email</ion-radio>
+						<ion-radio ng-model="choice2" name="choice2" ng-value="'Text'">Text</ion-radio>
+						<ion-radio ng-model="choice2" name="choice2" ng-value="'Printed letter'">Printed letter
+						</ion-radio>
+						<ion-radio ng-model="choice2" name="choice2" ng-value="'Audio recording'">Audio recording
+						</ion-radio>
+						<ion-radio ng-model="choice2" name="choice2" ng-value="'Minutes of meeting'">Minutes of meeting
+						</ion-radio>
+					</ion-list>
+					</div>
+					<h4 class="report">Upload copy of acknowledgment message.</h4>
+						<img src="img/report.png" class="photoImg reportImg">
+				<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save(choice,choice2)">
+			  		Save
+				</button>
+
+				<button class="button button-energized button-block sign_btn" ng-click="clickme()" ng-if="uploaded == 'ok'">
+			  		Download
+				</button>
+
+				<input type="file" id="fileinput" name="file" ng-model="files" on-file-change="onSelected" />
+				</form>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

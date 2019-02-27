@@ -1,0 +1,38 @@
+<ion-view view-title="Schools"  hide-back-button="true">
+	<ion-nav-buttons side="left">
+        <!-- <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button> -->
+  </ion-nav-buttons>
+	<ion-nav-buttons side="right">
+      <button class="button button-icon ion-plus plusIcon" ui-sref="app.addschool"></button>
+  	</ion-nav-buttons>
+  	<ion-content>
+	  	<ion-list can-swipe="true">
+	  		
+			<!-- ui-sref="app.listissues" -->
+			<div ng-repeat="list1 in SchoolList | groupBy : 'division_id'" ng-if="SchoolList.length > 0">
+				<div class="item item-divider divHead" >
+						{{list1[0].div_name}}
+				</div>
+		        <ion-item class="sch_subitem" ng-repeat="list in list1" ng-click="listIssue(list)">
+		            {{list.school_name}}
+		            <!-- <ion-option-button class="button-positive icon ion-edit"></ion-option-button> -->
+		            <ion-option-button class="button-assertive icon ion-trash-a" ng-click="delete_school(list)"></ion-option-button>
+		        </ion-item>
+		    </div>
+		    <div ng-if="SchoolList.length == 0">
+		    		<div class="item item-divider divHead" >
+						No Schools to Display
+					</div>	
+		    		<!-- <h2>No School to Display</h2> -->
+		    </div>
+		       <!--  <ul ng-repeat="(division_id, value) in SchoolList | groupBy: 'division_id' ">
+				  Group name: {{ division_id }}
+				  <li ng-repeat="player in value">
+				    player: {{ player.school_name }} 
+				  </li>
+				</ul> -->
+	    	</ion-list>
+		</div>
+  	</ion-content>
+</ion-view>

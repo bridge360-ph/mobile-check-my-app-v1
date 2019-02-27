@@ -1,0 +1,23 @@
+<ion-view view-title="Cooperation Form">
+	<ion-content>
+			<div class="row responsive-sm ContentPad">
+				<div class="col idenCol">
+					<img src="img/CMS.png" class="CoopeImg">
+					
+					<h3 class="PageTitle">Cooperation Form</h3>
+
+					<button class="button button-energized sign_btn downloadBtn">
+			  		Upload
+					</button>
+					<div>
+					<button class="button downloadBtn" ng-click="clickme()" ng-if="uploaded == 'ok'">
+						Download Uploaded
+					</button>
+					</div>
+					 <!-- <input type="file" id="fileinput" name="file" ng-model="fileToUpload" onchange="angular.element(this).scope().fileNameChanged(this)"/> -->
+					 
+					 <input type="file" id="fileinput" name="file" ng-model="files" on-file-change="onFilesSelected" />
+				</div>	
+			</div>
+	</ion-content>
+</ion-view>

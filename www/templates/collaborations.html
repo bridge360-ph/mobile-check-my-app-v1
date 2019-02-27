@@ -1,0 +1,67 @@
+<ion-view view-title="Collaborations">
+  <ion-segment ng-model="categories" full="true" class="segColl" energized>
+  <ion-segment-button value="collaborated">
+    Collaborated
+  </ion-segment-button>
+  <ion-segment-button value="invited">
+    Invited
+  </ion-segment-button>
+</ion-segment>
+<ion-content class="has-header has-subheader">
+
+  <div ng-switch="categories">
+      <ion-list can-swipe="true" ng-switch-when="collaborated">
+          <ion-item class="sch_subitem frndPadd" ng-repeat="c in collaborator">
+            <div class="row">
+              <div class="">
+                <img ng-src="{{c.image}}" class="colbImg" ng-if="c.image != ''">
+                <img src="img/user.png" class="colbImg" ng-if="c.image == ''">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>{{c.name}}</h2>
+              </div>
+            </div>
+            <!-- ui-sref="app.viewchat({'sender_id':user_id,'receiver_id':c.user_id})" -->
+            <ion-option-button class="button-positive icon ion-chatbubbles" ng-click="DetailPage(c)"></ion-option-button>
+            <ion-option-button class="button-assertive icon ion-trash-a" ng-click="delete_invitation(c)"></ion-option-button>
+          </ion-item>
+          <ion-item class="sch_subitem frndPadd" ng-if="collaborator.length < 1">
+            <div class="row">
+              <div class="">
+                <img src="img/user.png" class="colbImg">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>No Collaborated User</h2>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+        <ion-list can-swipe="true" ng-switch-when="invited">
+          <ion-item class="sch_subitem frndPadd" ng-repeat="u in visitors">
+            <div class="row">
+              <div class="">
+                <img src="img/user.png" class="colbImg">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>{{u.name}}</h2>
+              </div>
+            </div>
+            <ion-option-button class="button-assertive icon ion-trash-a" ng-click="delete_invitation(u)"></ion-option-button>
+          </ion-item>
+          <ion-item class="sch_subitem frndPadd" ng-if="visitors.length < 1">
+            <div class="row">
+              <div class="">
+                <img src="img/user.png" class="colbImg">
+              </div>
+              <div class="col col-80 frndName">
+                <h2>No Invited User</h2>
+              </div>
+            </div>
+          </ion-item>
+
+        </ion-list>
+  </div>
+</ion-content>
+
+
+</ion-view>

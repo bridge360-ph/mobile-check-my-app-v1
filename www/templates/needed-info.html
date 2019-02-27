@@ -1,0 +1,36 @@
+<ion-view view-title="Identify Information">
+	<ion-content>
+			<div class="row responsive-sm ContentPad">
+				<div class="col idenCol">
+					<img src="img/CMS.png" class="CoopeImg">
+					
+					<p class="padBottom">Identify data related to the issue.</p>
+					<p class="padBottom">See list. Tick if relevant and add more if not yet in the list.</p>
+
+					<label class = "item item-input item-select item-bgcolor">
+				      	<div class = "input-label">
+				         	Select
+				      	</div>
+		
+				      	<!-- <select multiselect-dropdown multiple="multiple" ng-model="searchOption[i]" ng-options="type.name for type in p" ng-repeat="p in Products"> -->
+
+				      	<!-- <select ng-options="record.value as record.value for record in records" ng-model="output[$index]" multiple="multiple"></select> -->
+						
+						<select ng-options="record.data_id as record.title for record in records" ng-model="output" ng-change="selectedOption(output)"></select>
+				      	
+				      <!-- 	<select data-ng-options="o.name for o in options" data-ng-model="selectedOption"></select> -->
+				      	
+				   	</label>
+				   	<label class = "item item-input" >
+				   		<div class = "input-label">
+				         	Other ( Optional)
+				      	</div>
+				   				<input type="text" name="other" ng-model="test.other">
+				   	</label>
+				   	<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save()">
+			  		Save
+					</button>
+				</div>	
+			</div>
+	</ion-content>
+</ion-view>

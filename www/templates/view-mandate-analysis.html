@@ -1,0 +1,38 @@
+<ion-view view-title="View Mandate Analysis">
+	<ion-nav-buttons side="right">
+		<button class="setbtn" ng-click="backissue()">Report Issue</button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="row responsive-sm">
+		<div class="col">
+		<ul class="list" ng-show="isMandateExist" >
+			
+		<div>
+			<div style="
+			text-align: center;
+			padding: 10px;">
+				<span class="spanMandate1">MASER's ANSWER</span>
+			</div>
+
+			<div>
+			<p class="spanMandaet2" ng-if="showHint" ng-bind-html="listData.masers_answer"></p>
+			<p class="spanMandaet2" ng-if="!showHint"  ng-bind-html="listData.masers_answer1"></p>
+				
+				<a ng-click="showHint = !showHint">
+					<span ng-bind="showHint ? 'View less' : 'View more'"></span>
+				</a>
+			</div>
+			
+		</div>
+
+			<div ng-if="showHint" ui-sref="app.Requestinfo" class="item item-input remove_top_boarder">
+				<span class="input-label spanMandate">Request for Information</span>
+				 <span class="spanMandaet2" ng-bind-html="listData.request_for_information"></span>
+			</div>
+		</ul>
+		
+			<p ng-show="!isMandateExist" style="text-align: center;">No mandate analysis exist for this issue.</p>
+		
+		</div>
+	</ion-content>
+</ion-view>

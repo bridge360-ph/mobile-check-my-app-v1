@@ -1,0 +1,63 @@
+<ion-view view-title="Ratings"> 
+  	<ion-content scroll="false">
+   <span class="help-block" id="rawH"></span>
+  	<div class="row">
+  		<div class="col">
+  			<h3 class="dash_title">Rating Chart</h3>
+            </div>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+            <div class="ratediv col-1">
+                  <h2 class="rateh2">Rates</h2>
+            </div>
+             <div class="col-11">
+                  <canvas id="line" class="chart chart-line" chart-data="data1"
+                  chart-labels="labels1" chart-series="series" chart-options="options"
+                  chart-dataset-override="datasetOverride" chart-click="onClick">
+                  
+            </canvas>
+             </div>     
+      </div>
+      <h2 class="ratinglabeldate">Dates</h2>
+      <div class="item" ion-datetime-picker only-valid="{'before': 'today'}" date ng-model="datetimeValuedate" ng-change="call_rating(datetimeValuedate,1)">
+           Date Wise Rating {{datetimeValuedate| date: "dd/MM/yyyy"}}
+      </div>
+
+      <!-- <div class="item" ion-datetime-picker only-valid="{'before': 'today'}" date ng-model="datetimeValue" ng-change="call_rating(datetimeValue,2)">
+            Month Wise Rating {{datetimeValue| date: "dd/MM/yyyy" }}
+      </div> -->
+
+      <div class="row" style="padding: 16px;">
+            <div col-6 style="width: 50%;"><label style="font-size: 16px;">Month Wise Rating</label></div>
+            
+            <div col-6 style="text-align: right;padding: 5px;width: 50%;">
+                  <select class="selectyear" ng-model="Selectmonth" ng-change="selectmonth(Selectmonth,2,'month')" name="month" required> 
+                        <option value="" selected="true">Select Month</option>
+                        <option  ng-repeat="month in monthArray" value="{{month.id}}">{{month.name}}</option>  
+                  </select>
+            </div>
+      
+            
+            <div col-6 style="text-align: right;padding: 5px;width: 50%;">
+                  <select class="selectyear" ng-model="Selectmonthyear" ng-change="selectmonth(Selectmonthyear,2,'year')" name="year" required> 
+                        <option value="" selected="true">Select Year</option>
+                        <option  ng-repeat="year in yearmonth" value="{{year}}">{{year}}</option>  
+                  </select>
+            </div>
+      </div>
+
+      <!-- <div class="item" ion-datetime-picker only-valid="{'before': 'today'}" date ng-model="datetimeValueyear" ng-change="call_rating(datetimeValueyear,3)">
+            Select date for view data in year  {{datetimeValueyear| date: "dd/MM/yyyy" }}
+      </div> -->
+      <div class="row" style="padding: 16px;">
+            <div col-6 style="width: 50%;"><label style="font-size: 16px;">Year Wise Rating</label></div>
+            
+            <div col-6 style="text-align: right;padding: 5px;width: 50%;">
+                  <select class="selectyear" ng-model="Selectyear" ng-change="selectyear(Selectyear)" name="region" required> 
+                        <option value="" selected="true">Select Year</option>
+                        <option  ng-repeat="region in yearArray" value="{{region}}">{{region}}</option>  
+                  </select>
+            </div>
+      </div>
+  	</ion-content>
+</ion-view>

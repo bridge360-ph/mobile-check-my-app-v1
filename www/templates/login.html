@@ -1,0 +1,49 @@
+<ion-view view-title="Login">
+  <ion-content scroll="true">
+    
+    <div class="row logoLogin">
+      <div class="col">
+        <img src="img/CMS.png" class="RegLogo">
+      </div>
+    </div>
+    <form name="loginForm"  ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Email</span>
+            <input type="email" placeholder="Email" name="mail" required="" ng-model="data.mail">
+
+             <div ng-messages="loginForm.mail.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!loginForm .mail.$valid">Please Enter Email</div>
+            </div>
+
+        </label>
+       <label class="item item-input item-floating-label">
+            <span class="input-label labelColor">Password</span>
+            <input type="password" placeholder="Password" ng-model="data.pwd" name="password" required="">
+            <div ng-messages="loginForm.password.$error" ng-if='submitted'  style="color:red;font-size: 13px;" role="alert">
+                <div ng-message="required" class="error message"  ng-show="!loginForm.password.$valid">Please Enter Password</div>
+            </div>
+        </label>
+       <div class="row">
+        <div class="col col-50">
+          <button class="button button-energized button-block sign_btn" ng-click="login(loginForm)">
+            Login
+          </button>
+        </div>
+        <div class="col col-50">
+          <button class="button button-block resetBtn" ui-sref="home">
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="button button-energized button-clear button-block sign_btn forgetBtn" ui-sref="resetpassword">
+            Forget Password ?
+          </button>
+        </div>
+      </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

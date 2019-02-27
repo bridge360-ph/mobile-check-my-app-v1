@@ -1,0 +1,21 @@
+<ion-view view-title="Follow up implementation">
+	<ion-content>
+		<div class="row responsive-sm ContentPad">
+			<div class="col idenCol">
+				<p class="padBottom">Follow up implementation of agreed solution.</p>
+				<form ng-submit="">
+				<div class="padBottom">
+				<h4 class="report">Edit Template</h4>
+				</div>
+
+						<input type="text" name="support" ng-model="data.feedback" placeholder="Enter Feedback Text" class="supportfeed">
+
+					<button ng-disabled="{{buttonDisabled}}" class="button button-energized button-block sign_btn" ng-click="save()">
+			  		Save
+				</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
