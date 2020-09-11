@@ -4,7 +4,7 @@
   "description": "An Ionic project",
   "devDependencies": {
     "@ionic/app-scripts": "^3.1.9",
-    "@ionic/v1-toolkit": "1.0.7",
+    "@ionic/v1-toolkit": "3.2.12",
     "gulp": "^3.5.6",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
