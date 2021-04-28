@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@ionic-native/app-version"
+    versions:
+    - 5.31.1
+    - 5.32.0
+  - dependency-name: cordova-plugin-inappbrowser
+    versions:
+    - 4.1.0
+  - dependency-name: cordova-android
+    versions:
+    - 9.0.0
